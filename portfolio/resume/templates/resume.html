@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% load static %} {% block bodycontent %}
+
+  <main id="main">
+
+    <section id="resume" class="resume">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Resume</h2>
+          <p>{{personal_data.quote}}</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <h3 class="resume-title">Summary</h3>
+            <div class="resume-item pb-0">
+              <h4>{{personal_data.first_name}} {{personal_data.last_name}}</h4>
+              <p><em>{{personal_data.summary}}</em></p>
+              <p>
+              <ul>
+                <li>{{personal_data.address}}</li>
+                <li>{{personal_data.tel}}</li>
+                <li><a href = "mailto: abc@example.com" target="_blank">{{personal_data.email}}</a></li>
+              </ul>
+              </p>
+            </div>
+
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>{{educations.0.grade}}</h4>
+              <h5>{{educations.0.start_date}} - {{educations.0.end_date}}</h5>
+              <p><em>{{educations.0.university_name}}</em></p>
+              <p>{{educations.0.specialization}}</p>
+            </div>
+            <div class="resume-item">
+              <h4>{{educations.1.grade}}</h4>
+              <h5>{{educations.1.start_date}} - {% if educations.1.is_current %} present {% else %} {{educations.1.end_date}} {% endif %}</h5>
+              <p><em>{{educations.1.university_name}}</em></p>
+              <p>{{educations.1.specialization}}</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <h3 class="resume-title">Professional Experience</h3>
+            <div class="resume-item">
+              
+                <h4>{{experiences.0.job_position}}</h4>
+                <h5>{{experiences.0.start_date}}-{{experiences.0.end_date}}</h5>
+                <p><em>{{experiences.0.address}} </em></p>
+              
+              <p>
+               
+              </p>
+            </div>
+            <div class="resume-item">
+              <h4>{{experiences.1.job_position}}</h4>
+              <h5>{{experiences.1.start_date}} - {% if experiences.1.is_current %} present {% else %} {{experiences.1.end_date}} {% endif %}</h5>
+              <p><em>{{experiences.1.address}}</em></p>
+              <p>
+             
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+{% endblock %}
